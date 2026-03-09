@@ -28,3 +28,15 @@ deployment "production" {
     }
   }
 }
+
+deployment "test" {
+  inputs = {
+    regions        = ["us-west-1"]
+    role_arn       = "arn:aws:iam::441073927046:role/stacks-thes-tutorial-Stacks"
+    identity_token = identity_token.aws.jwt
+    default_tags = {
+      Stack       = "learn-stacks-deploy-aws",
+      Environment = "test"
+    }
+  }
+}
